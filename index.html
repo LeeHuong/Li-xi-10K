@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lì Xì Nổ 10k VND</title>
+    <!-- META PREVIEW LINK -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chúc mừng bạn đã nhận được 1 bao lì xì">
+  <meta property="og:description" content="Lì xì may mắn đầu năm - Mừng xuân Bính Ngọ 2026">
+  <meta property="og:image" content="https://i.ibb.co/JFMX50YF/bao-li-xi.png">
+  <meta property="og:url" content="https://leehuong.github.io/Chuc-Tet/">
+  <meta property="og:site_name" content="Mời bạn nhận lì xì">
+
+
+    <style>
+        body {
+            background: #ffdab9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+        .li-xi {
+            width: 300px;
+            height: 180px;
+            background: #ff4d4d;
+            border-radius: 20px 20px 40px 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+            border: 2px solid #ffd700;
+            background: linear-gradient(145deg, #ff3333, #cc0000);
+        }
+        .li-xi:hover {
+            transform: scale(1.05);
+        }
+        .li-xi:before {
+            content: "LÌ XÌ";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 24px;
+            text-shadow: 2px 2px 0 #b30000;
+        }
+        .li-xi:after {
+            content: "🧧";
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 40px;
+        }
+        .line {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 10px;
+            background: #ffd700;
+            border-radius: 5px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 0 2px #b30000;
+        }
+        .instruction {
+            color: #8b4513;
+            font-size: 18px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        /* Container cho hiệu ứng */
+        .effects-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        /* Style cho tờ tiền chính giữa */
+        .main-money {
+            position: absolute;
+            width: 300px;
+            height: auto;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            animation: mainMoneyAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            filter: drop-shadow(0 20px 30px rgba(255, 215, 0, 0.5));
+            border-radius: 15px;
+            z-index: 100;
+        }
+        
+        @keyframes mainMoneyAppear {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            }
+        }
+        
+        /* Style cho tiền rơi */
+        .falling-money {
+            position: absolute;
+            width: 60px;
+            height: auto;
+            opacity: 0;
+            animation: fallAnimation var(--fall-duration) linear forwards;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            border-radius: 5px;
+            z-index: 50;
+        }
+        
+        @keyframes fallAnimation {
+            0% {
+                opacity: 1;
+                transform: translateY(-10vh) rotate(0deg) scale(0.5);
+            }
+            100% {
+                opacity: 0.8;
+                transform: translateY(110vh) rotate(720deg) scale(1);
+            }
+        }
+        
+        /* Hiệu ứng nổ */
+        .explosion {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, rgba(255,215,0,0) 70%);
+            animation: explosionFlash 0.5s ease-out forwards;
+            z-index: 5;
+        }
+        
+        @keyframes explosionFlash {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(3);
+            }
+        }
+        
+        /* Hiệu ứng lắc */
+        .shake {
+            animation: shake 0.5s ease;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px) rotate(-5deg); }
+            75% { transform: translateX(15px) rotate(5deg); }
+        }
+        
+        /* Nền sáng lên */
+        .bright-flash {
+            animation: brightFlash 0.3s ease-out;
+        }
+        
+        @keyframes brightFlash {
+            0% { background: #ffdab9; }
+            50% { background: #fff3e0; }
+            100% { background: #ffdab9; }
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container">
+        <div class="li-xi" onclick="explodeMoney()">
+            <div class="line"></div>
+        </div>
+        <div class="instruction">👉 Click vào bao lì xì để nổ hũ 🎰 👈</div>
+    </div>
+    
+    <!-- Container cho hiệu ứng -->
+    <div id="effectsContainer" class="effects-container"></div>
+
+    <script>
+        function explodeMoney() {
+            const liXi = document.querySelector('.li-xi');
+            const body = document.getElementById('body');
+            const container = document.getElementById('effectsContainer');
+            
+            // Hiệu ứng lắc bao lì xì
+            liXi.classList.add('shake');
+            setTimeout(() => {
+                liXi.classList.remove('shake');
+            }, 500);
+            
+            // Hiệu ứng sáng nền
+            body.classList.add('bright-flash');
+            setTimeout(() => {
+                body.classList.remove('bright-flash');
+            }, 300);
+            
+            // Xóa hiệu ứng cũ
+            container.innerHTML = '';
+            
+            // Tạo hiệu ứng nổ
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            container.appendChild(explosion);
+            
+            // Xóa hiệu ứng nổ sau 0.5s
+            setTimeout(() => {
+                explosion.remove();
+            }, 500);
+            
+            // Tạo tờ tiền chính giữa
+            setTimeout(() => {
+                const mainMoney = document.createElement('img');
+                mainMoney.src = 'https://i.ibb.co/MyncnQSX/10k.webp';
+                mainMoney.className = 'main-money';
+                container.appendChild(mainMoney);
+            }, 200);
+            
+            // Tạo 30 tờ tiền rơi
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const fallingMoney = document.createElement('img');
+                    fallingMoney.src = 'https://i.ibb.co/MyncnQSX/10k.webp';
+                    fallingMoney.className = 'falling-money';
+                    
+                    // Random vị trí ngang (0% đến 100%)
+                    const leftPos = Math.random() * 100;
+                    fallingMoney.style.left = leftPos + '%';
+                    
+                    // Random kích thước (40px đến 80px)
+                    const size = 40 + Math.random() * 40;
+                    fallingMoney.style.width = size + 'px';
+                    
+                    // Random thời gian rơi (2s đến 4s)
+                    const duration = 2 + Math.random() * 3;
+                    fallingMoney.style.setProperty('--fall-duration', duration + 's');
+                    
+                    // Random độ trễ (0s đến 0.5s)
+                    const delay = Math.random() * 0.5;
+                    fallingMoney.style.animationDelay = delay + 's';
+                    
+                    // Random góc xoay ban đầu
+                    fallingMoney.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    
+                    container.appendChild(fallingMoney);
+                    
+                    // Xóa sau khi rơi xong
+                    setTimeout(() => {
+                        fallingMoney.remove();
+                    }, (duration + delay) * 1000);
+                    
+                }, i * 30); // Mỗi tờ cách nhau 30ms để tạo hiệu ứng tuần tự
+            }
+        }
+    </script>
+</body>
+</html>
